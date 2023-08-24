@@ -1,7 +1,10 @@
+import PostContent from '@/components/posts/post-content';
 import React from 'react';
 
-function SinglePostPage() {
-	return <div>SinglePostPage</div>;
+function SinglePostPage(props) {
+	return <div>
+		<PostContent />
+	</div>;
 }
 
 export default SinglePostPage;

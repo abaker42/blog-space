@@ -1,0 +1,15 @@
+.logo {
+	text-transform: uppercase;
+	font-size: var(--size-5);
+	font-weight: bold;
+	font-family: inherit;
+	color: var(--color-grey-50);
+	margin-top: 2rem;
+	align-items: center;
+}
+
+@media (min-width: 768px) {
+	.logo {
+		font-size: var(--size-8);
+	}
+}
