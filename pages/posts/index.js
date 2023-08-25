@@ -1,5 +1,5 @@
 import AllPosts from '@/components/posts/all-posts';
-import { getFeaturedPosts } from '@/lib/post-utils';
+import { getAllPosts, getFeaturedPosts } from '@/lib/post-utils';
 import React from 'react';
 
 // const allDUMMY = [
@@ -53,14 +53,14 @@ function AllPostsPage(props) {
 		</div>
 	);
 }
-export function getStaticProps(){
-	const featuredPosts = getFeaturedPosts();
+
+export function getServerSideProps(){
+	const myPosts = getAllPosts();
 	
 	return {
 		props: {
-			posts: featuredPosts,
-		},
-		revalidate: 1800, //30min
+			posts: myPosts,
+		}
 	};
 }
 export default AllPostsPage;
