@@ -9,7 +9,7 @@ function SinglePostPage(props) {
 }
 //whenever you get data you use
 //getStaticProps or GetServerSideProps
-export function getServerSideProps(context){
+export function getStaticProps(context){
 	//grab info from url like id or slug
 	const {params} = context;
 	const {slug} = params;
@@ -29,7 +29,7 @@ export function getServerSideProps(context){
 //if page were static we'd be good but for dynamic pages
 //we need getStaticPaths to let next know which slug value
 //to pregenerate.
-export function getStaticPath(){
+export function getStaticPaths(){
 	//all file with extension attached
 	const allFileNames = getPostsFiles()
 

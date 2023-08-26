@@ -1,6 +1,6 @@
 ---
 title: A First Mardown Post0
-date: '2023/08/21'
+date: '2023/08/22'
 image: cross.jpg
 excerpt: This is a dummy excerpt about nothing
 isFeatured: true
