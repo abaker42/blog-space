@@ -32,7 +32,7 @@ export function getStaticProps(context){
 export function getStaticPaths(){
 	//all file with extension attached
 	const allFileNames = getPostsFiles()
-
+	//remove all .md extensions
 	const slugs = allFileNames.map((fileName) => fileName.replace(/\.md$/, ''));
 	return {
 		//slugs you would want to preload
