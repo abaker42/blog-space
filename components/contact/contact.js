@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./contact.module.css";
 import Notification from "../ui/notification";
 
@@ -10,7 +10,6 @@ function Contact() {
 	const [message, setMessage] = useState("");
 
 	const [reqStatus, setReqStatus] = useState(); // success, pending, error
-	const [errs, setErrs] = useState();
 
 	const sendMsgToBackend = async (event) => {
 		event.preventDefault();
@@ -20,12 +19,23 @@ function Contact() {
 		try {
 			await sendData(formData);
 		} catch (err) {
-			setErrs(err.message);
 			setReqStatus("error");
 			console.log(err);
+            return;
 		}
 		setReqStatus("success");
 	};
+    let timer
+	useEffect(() => {
+		if (reqStatus === "success" || reqStatus === "error") {
+			 timer = setTimeout(() => {
+				setReqStatus(null);
+			}, 3000);
+		}
+
+		return () => clearTimeout(timer)
+
+	}, [reqStatus]);
 
 	let notification;
 	if (reqStatus === "pending") {
@@ -48,7 +58,7 @@ function Contact() {
 		notification = {
 			status: "error",
 			title: "ERROR",
-			message: errs,
+			message: 'Message Failed',
 		};
 	}
 
